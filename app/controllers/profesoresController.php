@@ -44,8 +44,6 @@ class profesoresController extends Controller {
       Redirect::to('profesores');
     }
     
-    
-
     $data = 
     [
       'title'    => sprintf('Profesor #%s',$profesor['documento']),
@@ -179,6 +177,40 @@ class profesoresController extends Controller {
 
   function borrar($id)
   {
-    // Proceso de borrado
+    try
+    {
+       if(!check_get_data(['_t'], $_GET) || !Csrf::validate($_GET['_t'])){
+         Flasher::new(get_notification(0),'danger');
+         Redirect::to('materias');
+       }
+
+       //VALIDAR ROL
+       if(!is_admin(get_user_role())){
+         Flasher::new(get_notification(0),'danger');
+         Redirect::to(URL);
+       }
+       
+       //Exista el profesor
+       if(!$profesor = profesorModel::by_id($id)){
+        throw new Exception('No existe el profesor');
+       }
+
+       //Borrarmos el registro
+       if(!profesorModel::eliminar($profesor['id'])){
+         throw new Exception(get_notification(0),'danger');
+       }
+
+       Flasher::new(sprintf('Profesor <b>%s</b> borrado con exito ya.',$profesor['nombre'],' ', $profesor['apellido']),'success');
+       Redirect::to('profesores');
+
+    } catch(PDOException $e)
+    {
+       Flasher::new($e -> getMessage(),'danger');
+       Redirect::back();
+    } catch(Exception $e)
+    {
+       Flasher::new($e -> getMessage(),'danger');
+       Redirect::back();
+    }
   }
 }

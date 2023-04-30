@@ -94,6 +94,29 @@
           <div class="wrapper-materias-profesor" data-id="<?php echo $d->p->id; ?>">
             <!-- agregar con ajax la lista de materias -->
           </div>
+          <!-- Modal de confirmación -->
+          <div class="modal fade " id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <!-- Contenido del modal de confirmación -->
+                <div class="modal-header">
+                  <h5 class="modal-title" id="confirmModalLabel">Confirmar Borrado</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>¿Estás seguro de que deseas borrar esta materia?</p>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
+                  <a class="btn btn-danger eliminar_materia_profesor" href="#">Borrar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fin Modal -->
         </div>
       </div>
     </div>

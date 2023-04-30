@@ -32,7 +32,7 @@
               <div class="btn-group">
                 <a href="<?php echo 'profesores/ver/'.$p->documento;?>" class="btn btn-sm btn-success"><i
                     class="fas fa-eye"></i></a>
-                <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#confirmModal"><i
+                <a class="btn btn-sm btn-danger" href="<?php echo buildURL('profesores/borrar/'.$p->id);?>"><i
                     class="fas fa-trash"></i></a>
               </div>
             </td>
@@ -42,31 +42,6 @@
       </table>
       <?php echo $d->profesores->pagination; ?>
     </div>
-
-    <!-- Modal -->
-    <!-- Modal de confirmación -->
-    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <!-- Contenido del modal de confirmación -->
-          <div class="modal-header">
-            <h5 class="modal-title" id="confirmModalLabel">Confirmar Borrado</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>¿Estás seguro de que deseas borrar este profesor?</p>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
-            <a class="btn btn-danger" href="<?php echo buildURL('profesores/borrar/'.$p->id);?>">Borrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Fin Modal -->
     <?php else: ?>
     <div class="py-5 text-center">
       <img src="<?php echo IMAGES.'documento.png'?>" alt="No hay registros" style="width: 250px; margin: 20px">
