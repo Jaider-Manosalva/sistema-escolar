@@ -3,7 +3,7 @@
   <ul class="list-group">
     <?php foreach ($d as $m) : ?>
       <?php echo sprintf('<li class="list-group-item">%s <button class=" float-right btn btn-danger eliminar_materia_profesor" data-id="%s"><i
-    class="fas fa-trash"></i></button></li>', $m->nombre, $m->id); ?>
+      class="fas fa-trash"></i></button></li>', $m->nombre, $m->id); ?>
 
     <?php endforeach; ?>
   </ul>

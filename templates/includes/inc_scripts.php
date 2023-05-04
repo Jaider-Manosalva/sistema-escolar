@@ -35,4 +35,4 @@
 <!-- Scripts registrados manualmente -->
 <?php echo load_scripts(); ?>
 
-<script src="<?php echo JS.'si.js'?>"></script>
+<script src="<?php echo JS.'newMain.js'?>"></script>
