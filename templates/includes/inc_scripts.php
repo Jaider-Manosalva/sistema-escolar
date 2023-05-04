@@ -36,4 +36,3 @@
 <?php echo load_scripts(); ?>
 
 <script src="<?php echo JS.'si.js'?>"></script>
-<!-- Scripts personalizados Bee Framework <script src="<?php echo JS.'main.js?v='.get_version(); ?>"></script>-->
