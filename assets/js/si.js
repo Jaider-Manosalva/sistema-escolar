@@ -257,9 +257,6 @@ function add_materia_profesor(e) {
   })
 }
 
-// const eliminar = document.querySelector(".eliminar_materia_profesor");
-// eliminar.addEventListener("onClick", quitar_materia_profesor);
-
 $('body').on('click', '.eliminar_materia_profesor',quitar_materia_profesor);
 function quitar_materia_profesor(e) {
   e.preventDefault();
@@ -304,6 +301,58 @@ function quitar_materia_profesor(e) {
     form.waitMe('hide');
   })
 }
+
+// const eliminar = document.querySelector(".quitarmateriaprofesor");
+// eliminar.addEventListener("onClick", quitar_materia_profesor);
+
+// //$('body').on('click', '.quitarmateriaprofesor',quitar_materia_profesor);
+
+// function quitar_materia_profesor(e) {
+//   e.preventDefault();
+//   var btn         = $(this),
+//       wrapper     = $('.wrapper-materias-profesor'),
+//       csrf        = Bee.csrf,
+//       id_materia  = btn.data('id'),
+//       id_profesor = wrapper.data('id'),
+//       li          = btn.closest('li'),
+//       action      = 'delete',
+//       hook        = 'bee_hook';
+
+//       console.log('entro a la funcion');
+//       if(!confirm('Estas seguro?')) return false;
+
+//   // AJAX
+//   $.ajax({
+//     url: 'ajax/quitar_materia_profesor',
+//     type: 'post',
+//     dataType: 'json',
+//     cache: false,
+//     data : {
+//        csrf,
+//        id_materia,
+//        id_profesor,
+//        action,
+//        hook
+//     },
+//     beforeSend: function(){
+//       li.waitMe();
+//     }
+
+//   }).done(function(res) {
+//     if(res.status === 200) {
+//       toastr.success(res.msg, '¡Bien!');
+//       li.fadeOut();
+//       get_materias_disponibles_profesor();
+//       //get_materias_profesor();
+//     } else {
+//       toastr.error(res.msg, '¡Upss!');
+//     }
+//   }).fail(function(err) {
+//     toastr.error('Hubo un error en la petición', '¡Upss!');
+//   }).always(function() {
+//     form.waitMe('hide');
+//   })
+// }
 
 // // Agregar un movimiento
 // $('.bee_add_movement').on('submit', bee_add_movement);

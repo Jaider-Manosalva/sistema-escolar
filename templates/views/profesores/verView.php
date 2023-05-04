@@ -1,4 +1,4 @@
-<?php require_once INCLUDES.'inc_header.php'; ?>
+<?php require_once INCLUDES . 'inc_header.php'; ?>
 
 <div class="row">
   <!-- acordion profesor -->
@@ -6,10 +6,9 @@
     <!-- Collapsable Card Example -->
     <div class="card shadow mb-4">
       <!-- Card Header - Accordion -->
-      <a href="#profesor_data" class="d-block card-header py-3" data-toggle="collapse" role="button"
-        aria-expanded="true" aria-controls="profesor_data">
+      <a href="#profesor_data" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="profesor_data">
         <h6 class="m-0 font-weight-bold text-primary">
-          <?php echo sprintf('Profesor #%s',$d->p->documento); ?>
+          <?php echo sprintf('Profesor #%s', $d->p->documento); ?>
           <div class="float-right">
             <?php echo format_status_user($d->p->estado); ?>
           </div>
@@ -19,25 +18,22 @@
       <div class="collapse show" id="profesor_data">
         <div class="card-body">
           <form action="profesores/post_editar" method="post">
-            <?php echo insert_inputs();?>
+            <?php echo insert_inputs(); ?>
             <input type="hidden" name="id" value="<?php echo $d->p->id; ?>" required>
 
             <div class="form-group">
               <label for="nombre">Nombres</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $d->p->nombre?>"
-                required>
+              <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $d->p->nombre ?>" required>
             </div>
 
             <div class="form-group">
               <label for="apellido">Apellidos</label>
-              <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $d->p->apellido?>"
-                required>
+              <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $d->p->apellido ?>" required>
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" value="<?php echo $d->p->email?>"
-                required>
+              <input type="email" class="form-control" id="email" name="email" value="<?php echo $d->p->email ?>" required>
             </div>
 
             <div class="form-group">
@@ -47,14 +43,12 @@
 
             <div class="form-group">
               <label for="telefono">Telefono</label>
-              <input type="text" class="form-control" id="telefono" name="telefono"
-                value="<?php echo $d->p->telefono?>">
+              <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $d->p->telefono ?>">
             </div>
 
             <div class="form-group">
               <label for="creado">Fecha de Creacion</label>
-              <input type="text" class="form-control" id="creado" name="creado"
-                value="<?php echo format_date($d->p->fecha_Creacion); ?>" disabled>
+              <input type="text" class="form-control" id="creado" name="creado" value="<?php echo format_date($d->p->fecha_Creacion); ?>" disabled>
             </div>
 
             <button class="btn btn-success" type="submit">Guardar Cambios</button>
@@ -69,8 +63,7 @@
     <!-- Collapsable Card Example -->
     <div class="card shadow mb-4">
       <!-- Card Header - Accordion -->
-      <a href="#profesor_materia" class="d-block card-header py-3" data-toggle="collapse" role="button"
-        aria-expanded="true" aria-controls="profesor_materia">
+      <a href="#profesor_materia" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="profesor_materia">
         <h6 class="m-0 font-weight-bold text-primary">Listado de materias</h6>
 
       </a>
@@ -78,7 +71,7 @@
       <div class="collapse show" id="profesor_materia">
         <div class="card-body">
           <form id="profesor_asig_materia" method="post">
-            <?php echo insert_inputs();?>
+            <?php echo insert_inputs(); ?>
             <input type="hidden" name="id" value="<?php echo $d->p->id; ?>" required>
 
             <div class="form-group">
@@ -94,32 +87,10 @@
           <div class="wrapper-materias-profesor" data-id="<?php echo $d->p->id; ?>">
             <!-- agregar con ajax la lista de materias -->
           </div>
-          <!-- Modal de confirmación -->
-          <div class="modal fade " id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <!-- Contenido del modal de confirmación -->
-                <div class="modal-header">
-                  <h5 class="modal-title" id="confirmModalLabel">Confirmar Borrado</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>¿Estás seguro de que deseas borrar esta materia?</p>
-                </div>
-                <div class="modal-footer">
-                  <a class="btn btn-secondary" data-dismiss="modal">Cancelar</a>
-                  <a class="btn btn-danger eliminar_materia_profesor" href="#">Borrar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Fin Modal -->
+
         </div>
       </div>
     </div>
   </div>
 
-  <?php require_once INCLUDES.'inc_footer.php'; ?>
+  <?php require_once INCLUDES . 'inc_footer.php'; ?>
