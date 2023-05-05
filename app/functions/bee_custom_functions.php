@@ -90,3 +90,26 @@ function format_status_user($status){
   }
   return sprintf($placeholder,$class,$icon,$text);
 }
+
+function mail_confirmar_cuenta($id_usuario)
+{
+  if (!$usuario = usuarioModel::by_id($id_usuario)) return false;
+
+  $nombre = $usuario['nombre'];
+  $hash   = $usuario['hash'];
+  $email  = $usuario['email'];
+  $estado = $usuario['estado'];
+
+  //si el estado no es pendiente no requiere activarse
+  if($estado !== 'pendiente') return false;
+
+  $subjet = sprintf('Confirma tu correo electronico por favor %s', $nombre);
+  $alt     = sprintf('Debes confirmar tu correo electronico para poder ingresar a %s.', get_sitename());
+  $url     = buildURL(URL.'login/activate',['email' => $email, 'hash' => $hash], false, false );
+  $text    = '!Hola %s!<br>Para ingresar al sistema de <b>%s</b> primero debes confirmar tu direccion de correo electronico dando clic en el siguiente enlace seguro: <a href="%s">%s</a>';
+  $body    = sprintf($text, $nombre, get_sitename(), $url, $url);
+
+  if(send_email(get_siteemail(), $email, $subjet, $body, $alt) !== true) return false;
+
+  return true;
+}

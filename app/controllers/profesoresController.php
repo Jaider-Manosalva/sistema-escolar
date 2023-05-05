@@ -183,7 +183,7 @@ class profesoresController extends Controller {
          Flasher::new(get_notification(0),'danger');
          Redirect::to('materias');
        }
-
+ 
        //VALIDAR ROL
        if(!is_admin(get_user_role())){
          Flasher::new(get_notification(0),'danger');
@@ -196,11 +196,11 @@ class profesoresController extends Controller {
        }
 
        //Borrarmos el registro
-       if(!profesorModel::eliminar($profesor['id'])){
+       if(profesorModel::eliminar($profesor['id']) === false){
          throw new Exception(get_notification(0),'danger');
        }
 
-       Flasher::new(sprintf('Profesor <b>%s</b> borrado con exito ya.',$profesor['nombre'],' ', $profesor['apellido']),'success');
+       Flasher::new(sprintf('Profesor <b>%s</b> borrado con exito ya.',$profesor['nombre'],),'success');
        Redirect::to('profesores');
 
     } catch(PDOException $e)

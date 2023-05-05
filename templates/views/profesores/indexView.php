@@ -32,7 +32,7 @@
               <div class="btn-group">
                 <a href="<?php echo 'profesores/ver/'.$p->documento;?>" class="btn btn-sm btn-success"><i
                     class="fas fa-eye"></i></a>
-                <a class="btn btn-sm btn-danger" href="<?php echo buildURL('profesores/borrar/'.$p->id);?>"><i
+                <a href="<?php echo buildURL('profesores/borrar/'.$p->id);?>" class="btn btn-sm btn-danger"><i
                     class="fas fa-trash"></i></a>
               </div>
             </td>

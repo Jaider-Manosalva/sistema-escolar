@@ -94,7 +94,7 @@ language:{
   infoEmpy:   "Mostrando 0 registros.",
   infoFiltered: "(Filtrando de _MAX_ registros en total.)",
   infoPosFix: "",
-  zeroRecords: "",
+  zeroRecords: "No hay registros encontrados",
   emptyTable: "No hay informacion.",
   paginate: {
     first: "Primera",

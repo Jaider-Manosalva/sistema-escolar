@@ -55,6 +55,13 @@ function post_login()
         throw new Exception('las credenciales no son correctas');
       }
 
+      //validar el status del usuario
+      if($user['estado'] === 'pendiente'){
+        mail_confirmar_cuenta($user['id']);
+        Flasher::new("Confirma tu correo electronico para continuar.",'danger');
+        Redirect::back();
+      };
+
       // Loggear al usuario
       Auth::login($user['id'], $user);
       Redirect::to('dashboard');
@@ -68,4 +75,3 @@ function post_login()
     }
   }
 }
-

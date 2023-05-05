@@ -72,7 +72,7 @@ class profesorModel extends Model
 
   static function eliminar($id_profesor)
   {
-    $sql = 'DELETE u, mp FROM tb_usuarios u JOIN tb_materias_profesores mp ON mp.id_profesor = u.id WHERE u.id = :id AND u.rol = "profesor"';
-    return (parent::query($sql, ['id' => $id_profesor])) ? true : false;
+    $sql = 'DELETE u, mp FROM tb_usuarios u JOIN tb_materias_profesores mp ON mp.Id_Profesor = u.id WHERE u.id = :id AND u.rol = "profesor"';
+    return (parent::query($sql, ['id' => $id_profesor])) ? true : false; 
   }
 }
