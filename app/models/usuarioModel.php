@@ -2,7 +2,7 @@
 
 class usuarioModel extends Model
 {
-   static $t1 = 'usuarios';
+   static $t1 = 'tb_usuarios';
    
    public static function by_email($email){
      $sql = 'SELECT * FROM tb_usuarios WHERE email = :email LIMIT 1';

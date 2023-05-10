@@ -109,7 +109,7 @@ function mail_confirmar_cuenta($id_usuario)
   $text    = '!Hola %s!<br>Para ingresar al sistema de <b>%s</b> primero debes confirmar tu direccion de correo electronico dando clic en el siguiente enlace seguro: <a href="%s">%s</a>';
   $body    = sprintf($text, $nombre, get_sitename(), $url, $url);
 
-  if(send_email(get_siteemail(), $email, $subjet, $body, $alt) !== true) return false;
+  if(send_email_plus(get_siteemail(), $email, $subjet, $body, $alt) !== true) return false;
 
   return true;
 }
